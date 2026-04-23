@@ -1,0 +1,318 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@font-face {
+  font-family: "Pixel Operator";
+  src: url("/fonts/PixelOperator.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Pixel Operator";
+  src: url("/fonts/PixelOperator-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* TT Hoves — drop the font files into /public/fonts/ to activate.
+   Until then, the stack falls back to Tahoma. Supported filenames:
+   TTHoves-Regular.woff2, TTHoves-Medium.woff2, TTHoves-Bold.woff2 */
+@font-face {
+  font-family: "TT Hoves";
+  src: url("/fonts/TTHoves-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "TT Hoves";
+  src: url("/fonts/TTHoves-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "TT Hoves";
+  src: url("/fonts/TTHoves-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "TT Hoves";
+  src: url("/fonts/TTHoves-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ice: var(--ice);
+  --color-frost: var(--frost);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+
+  --font-display: "Pixel Operator", "TT Hoves", "Tahoma", system-ui, sans-serif;
+  --font-sans: "TT Hoves", "Tahoma", "Geneva", "Verdana", system-ui, sans-serif;
+  --font-mono: "Pixel Operator", ui-monospace, monospace;
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* Cold deep-space background */
+  --background: oklch(0.16 0.012 240);
+  --foreground: oklch(0.97 0.005 220);
+
+  --card: oklch(0.20 0.015 240);
+  --card-foreground: oklch(0.97 0.005 220);
+
+  --popover: oklch(0.18 0.015 240);
+  --popover-foreground: oklch(0.97 0.005 220);
+
+  /* Icy white-cold primary */
+  --primary: oklch(0.96 0.012 220);
+  --primary-foreground: oklch(0.18 0.02 240);
+
+  --secondary: oklch(0.26 0.018 240);
+  --secondary-foreground: oklch(0.96 0.005 220);
+
+  --muted: oklch(0.24 0.015 240);
+  --muted-foreground: oklch(0.70 0.018 230);
+
+  --accent: oklch(0.85 0.06 220);
+  --accent-foreground: oklch(0.18 0.02 240);
+
+  --ice: oklch(0.88 0.07 220);
+  --frost: oklch(0.75 0.10 230);
+
+  --destructive: oklch(0.62 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --success: oklch(0.74 0.16 155);
+  --warning: oklch(0.80 0.16 85);
+
+  --border: oklch(0.30 0.02 235 / 0.6);
+  --input: oklch(0.30 0.02 235);
+  --ring: oklch(0.85 0.06 220);
+
+  --gradient-frost: linear-gradient(135deg, oklch(0.96 0.012 220) 0%, oklch(0.78 0.10 225) 100%);
+  --gradient-aurora: radial-gradient(ellipse at top, oklch(0.45 0.12 230 / 0.35), transparent 60%),
+                     radial-gradient(ellipse at bottom, oklch(0.35 0.10 250 / 0.25), transparent 60%);
+  --shadow-frost: 0 10px 40px -10px oklch(0.85 0.10 220 / 0.35);
+  --shadow-glow: 0 0 60px -10px oklch(0.85 0.12 220 / 0.5);
+}
+
+.dark {
+  /* Same palette — site is dark by default */
+  --background: oklch(0.16 0.012 240);
+  --foreground: oklch(0.97 0.005 220);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+
+  /* Custom scrollbar — frosty, on-brand */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(0.75 0.10 230 / 0.55) transparent;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: oklch(0.18 0.015 240 / 0.6);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      180deg,
+      oklch(0.88 0.07 220 / 0.85) 0%,
+      oklch(0.65 0.14 235 / 0.85) 100%
+    );
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    box-shadow: inset 0 0 6px oklch(0.85 0.12 220 / 0.4);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+      180deg,
+      oklch(0.95 0.05 220) 0%,
+      oklch(0.75 0.16 230) 100%
+    );
+    background-clip: padding-box;
+    box-shadow: 0 0 10px oklch(0.85 0.14 225 / 0.6);
+  }
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  /* FAQ / Accordion smooth scaling animation */
+  [data-state="open"] > [data-accordion-anim],
+  [data-accordion-anim] {
+    transition:
+      transform 350ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 350ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 350ms ease,
+      background-color 350ms ease;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: 0;
+    -webkit-font-smoothing: none;
+    image-rendering: pixelated;
+  }
+}
+
+/* Aurora background blobs */
+.aurora-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.55;
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+.aurora-1 {
+  width: 60vmax;
+  height: 60vmax;
+  top: -20vmax;
+  left: -15vmax;
+  background: radial-gradient(circle, oklch(0.55 0.18 230) 0%, transparent 60%);
+  animation: aurora-drift-1 28s ease-in-out infinite alternate;
+}
+.aurora-2 {
+  width: 55vmax;
+  height: 55vmax;
+  bottom: -20vmax;
+  right: -15vmax;
+  background: radial-gradient(circle, oklch(0.50 0.16 250) 0%, transparent 60%);
+  animation: aurora-drift-2 34s ease-in-out infinite alternate;
+}
+.aurora-3 {
+  width: 45vmax;
+  height: 45vmax;
+  top: 30%;
+  left: 40%;
+  background: radial-gradient(circle, oklch(0.65 0.14 210) 0%, transparent 60%);
+  animation: aurora-drift-3 40s ease-in-out infinite alternate;
+  opacity: 0.35;
+}
+@keyframes aurora-drift-1 {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(15vmax, 10vmax) scale(1.15); }
+}
+@keyframes aurora-drift-2 {
+  0%   { transform: translate(0, 0) scale(1.1); }
+  100% { transform: translate(-12vmax, -8vmax) scale(1); }
+}
+@keyframes aurora-drift-3 {
+  0%   { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+  100% { transform: translate(-30%, -60%) scale(1.2) rotate(40deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-blob { animation: none; }
+}
+
+@layer utilities {
+  .text-gradient-frost {
+    background: var(--gradient-frost);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .bg-gradient-frost { background: var(--gradient-frost); }
+  .shadow-frost { box-shadow: var(--shadow-frost); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .glass {
+    background: oklch(0.22 0.015 240 / 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid oklch(0.85 0.06 220 / 0.12);
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(oklch(0.85 0.06 220 / 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(0.85 0.06 220 / 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* Frost-pop: lift, rotate slightly, and run a white shimmer across */
+  .frost-pop {
+    position: relative;
+    overflow: hidden;
+    transition:
+      transform 400ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 400ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 400ms ease;
+    will-change: transform;
+  }
+  .frost-pop::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      115deg,
+      transparent 30%,
+      oklch(1 0 0 / 0.18) 48%,
+      oklch(1 0 0 / 0.45) 50%,
+      oklch(1 0 0 / 0.18) 52%,
+      transparent 70%
+    );
+    transform: translateX(-120%);
+    transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+    mix-blend-mode: screen;
+    z-index: 1;
+  }
+  .frost-pop > * { position: relative; z-index: 2; }
+  .frost-pop:hover {
+    transform: translateY(-6px) rotate(-1.2deg) scale(1.03);
+    box-shadow: var(--shadow-glow);
+    border-color: oklch(0.85 0.1 220 / 0.4);
+  }
+  .frost-pop:hover::before {
+    transform: translateX(120%);
+  }
+  .frost-pop.tilt-right:hover {
+    transform: translateY(-6px) rotate(1.2deg) scale(1.03);
+  }
+}
