@@ -1,9 +1,7 @@
 import { Play } from "lucide-react";
 
 const videos = [
-  { id: "dQw4w9WgXcQ", title: "Pegasus.Tech — CS2 Showcase" },
-  { id: "9bZkp7q19f0", title: "Valorant Loadout Walkthrough" },
-  { id: "kJQP7kiw5Fk", title: "Apex Legends Highlights" },
+  { id: "eCO3DfCP1-s", title: "Pegasus.Tech — Legit Showcase" },
 ];
 
 export function MediaSection() {
