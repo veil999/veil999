@@ -2,6 +2,8 @@ import { Play } from "lucide-react";
 
 const videos = [
   { id: "eCO3DfCP1-s", title: "Pegasus.Tech — Legit Showcase" },
+  { id: "eCO3DfCP1-s", title: "Pegasus.Tech — Legit Showcase" },
+  { id: "eCO3DfCP1-s", title: "Pegasus.Tech — Legit Showcase" },
 ];
 
 export function MediaSection() {
