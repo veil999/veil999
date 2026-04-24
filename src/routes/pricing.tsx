@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Navbar, DISCORD_URL } from "@/components/Navbar";
+import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { Check } from "lucide-react";
+import { Lock } from "lucide-react";
 
 export const Route = createFileRoute("/pricing")({
   head: () => ({
@@ -32,53 +32,48 @@ function PricingPage() {
             Pricing as <span className="text-gradient-frost">cold</span> as the product
           </h1>
           <p className="mt-3 text-muted-foreground">
-            Pay for what you need. Keys are delivered instantly via Discord.
+            Pegasus.Tech is a private utility. Public sales are currently unavailable.
           </p>
         </div>
 
         <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {tiers.map((t) => (
-            <div key={t.name} className={`relative ${t.highlight ? "md:-mt-4" : ""}`}>
-              <div
-                className={`frost-pop glass rounded-2xl p-6 flex flex-col h-full ${
-                  t.highlight
-                    ? "border-[oklch(0.85_0.1_220/0.5)] shadow-frost overflow-visible"
-                    : "tilt-right"
-                }`}
-              >
-                {t.highlight && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20 bg-gradient-frost text-primary-foreground text-xs font-semibold px-3 py-1 rounded-full shadow-glow whitespace-nowrap">
-                    Most popular
-                  </div>
-                )}
+            <div key={t.name} className="relative">
+              <div className="frost-pop glass rounded-2xl p-6 flex flex-col h-full opacity-60 grayscale">
                 <h3 className="font-display text-xl font-semibold">{t.name}</h3>
                 <div className="mt-4 flex items-baseline gap-1">
-                  <span className="text-4xl font-bold text-gradient-frost">${t.price}</span>
+                  <span className="text-4xl font-bold text-muted-foreground line-through">${t.price}</span>
                   <span className="text-sm text-muted-foreground">/ {t.period}</span>
                 </div>
                 <ul className="mt-6 space-y-3 flex-1">
                   {t.features.map((f) => (
                     <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <Check className="h-4 w-4 text-frost shrink-0 mt-0.5" />
+                      <Lock className="h-4 w-4 text-muted-foreground shrink-0 mt-0.5" />
                       {f}
                     </li>
                   ))}
                 </ul>
-                <a
-                  href={DISCORD_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`mt-6 text-center rounded-md py-2.5 text-sm font-semibold transition-all ${
-                    t.highlight
-                      ? "bg-gradient-frost text-primary-foreground shadow-frost hover:shadow-glow"
-                      : "border border-border hover:bg-secondary/60"
-                  }`}
+                <button
+                  disabled
+                  className="mt-6 inline-flex items-center justify-center gap-2 rounded-md py-2.5 text-sm font-semibold border border-border bg-secondary/30 text-muted-foreground cursor-not-allowed"
                 >
-                  Get {t.name}
-                </a>
+                  <Lock className="h-3.5 w-3.5" />
+                  Unavailable
+                </button>
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-12 mx-auto max-w-2xl glass rounded-xl p-6 text-center">
+          <div className="inline-flex items-center gap-2 text-frost font-display font-semibold">
+            <Lock className="h-4 w-4" />
+            Private access only
+          </div>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Pegasus.Tech is invite-only at this time. Public purchases are disabled to protect the
+            integrity of the product.
+          </p>
         </div>
       </main>
       <Footer />
