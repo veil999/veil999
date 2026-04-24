@@ -13,6 +13,7 @@ const links = [
 
 const DISCORD_URL = "https://discord.gg/pegasustech";
 
+
 export function Navbar() {
   const [open, setOpen] = useState(false);
 
@@ -40,14 +41,16 @@ export function Navbar() {
               {l.label}
             </Link>
           ))}
-          <a
-            href={DISCORD_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/login"
             className="ml-3 inline-flex items-center gap-2 rounded-md bg-gradient-frost px-4 py-2 text-sm font-medium text-primary-foreground shadow-frost hover:shadow-glow transition-shadow"
+            activeProps={{
+              className:
+                "ml-3 inline-flex items-center gap-2 rounded-md bg-gradient-frost px-4 py-2 text-sm font-semibold text-primary-foreground shadow-glow",
+            }}
           >
-            Discord
-          </a>
+            Log in
+          </Link>
         </div>
 
         <button
@@ -75,14 +78,13 @@ export function Navbar() {
               {l.label}
             </Link>
           ))}
-          <a
-            href={DISCORD_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/login"
+            onClick={() => setOpen(false)}
             className="mt-2 text-center rounded-md bg-gradient-frost px-4 py-2 text-sm font-medium text-primary-foreground"
           >
-            Join Discord
-          </a>
+            Log in
+          </Link>
         </div>
       )}
     </header>
