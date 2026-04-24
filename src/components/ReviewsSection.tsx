@@ -1,12 +1,8 @@
 import { Star, Quote } from "lucide-react";
 
 const reviews = [
-  { name: "frostbyte_42", role: "CS2 player", rating: 5, text: "Smoothest scripting suite I've ever used. The Lua API is unreal — got my custom recoil pattern up in 10 minutes." },
-  { name: "ApexHunter", role: "Apex Predator", rating: 5, text: "Been with Pegasus for 6 months. Zero issues, instant updates after every patch. Worth every penny." },
-  { name: "midnight_gg", role: "Valorant", rating: 5, text: "The cold UI matches the precision. Discord support replied in under 2 minutes when I had a setup question." },
-  { name: "rust_chad", role: "Rust solo", rating: 5, text: "Lifetime key user. The team actually cares — they polled the community on which game to add next." },
-  { name: "0xPolarBear", role: "Tarkov raider", rating: 4, text: "Solid product, very stable. Would love a few more in-game UI customization options." },
-  { name: "NovaStrike", role: "Warzone", rating: 5, text: "Clean. Fast. Undetected. The shimmer on the cards is a nice touch too 😄" },
+  { name: "fartpoop", role: "SKID", rating: 0, text: "worst shit i have ever coded, buy it" },
+  { name: "placeholder", role: "BO$$", rating: 1, text: "DETECTED!!! I GOT JUGGED FOR 5 FIGS -REP" },
 ];
 
 export function ReviewsSection() {
