@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { MediaSection } from "@/components/MediaSection";
 import { ReviewsSection } from "@/components/ReviewsSection";
 import { games, statusMeta } from "@/data/games";
-import { Activity, Shield, Zap, Code2, ArrowRight, Gamepad2 } from "lucide-react";
+import { Activity, Shield, Zap, Flame, ArrowRight, Gamepad2 } from "lucide-react";
 import { TypingText } from "@/components/TypingText";
 import logo from "@/assets/logo.png";
 
@@ -129,7 +129,7 @@ function Index() {
           {[
             { icon: Zap, title: "Sub-millisecond", desc: "Native execution layer engineered for competitive frame budgets." },
             { icon: Shield, title: "Stealth-first", desc: "Continuous evasion research keeps your account in the clear." },
-            { icon: Code2, title: "Scriptable", desc: "Hot-reloadable Lua scripts. Build, share, and iterate at the speed of thought." },
+            { icon: Flame, title: "Customization", desc: "Infinite visual options ensure your unique look always stands out." },
           ].map((f) => (
             <div key={f.title} className={`frost-pop glass rounded-xl p-6 ${f.title === "Stealth-first" ? "tilt-right" : ""}`}>
               <div className="h-10 w-10 rounded-md bg-gradient-frost flex items-center justify-center mb-4">
