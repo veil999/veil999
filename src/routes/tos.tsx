@@ -2,16 +2,43 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
+const SITE_URL = "https://pegasuste.ch";
+const OG_IMAGE = `${SITE_URL}/og/tos.png`;
+
 export const Route = createFileRoute("/tos")({
   head: () => ({
     meta: [
-      { title: "Terms of Service — Pegasus.Tech" },
+      { title: "Pegasus.Tech | TOS" },
       { name: "description", content: "Terms of Service for Pegasus.Tech scripting utility." },
-      { property: "og:title", content: "Terms of Service — Pegasus.Tech" },
-      { property: "og:description", content: "Read the Pegasus.Tech terms of service." },
+
+      // Discord uses theme-color for the embed strip color
+      { name: "theme-color", content: "#7ad6ff" },
+
+      // Open Graph (Discord reads these)
+      { property: "og:site_name", content: "Pegasus.Tech" },
+      { property: "og:title", content: "TOS" },
+      { property: "og:description", content: "Terms of Service for Pegasus.Tech scripting utility." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: `${SITE_URL}/tos` },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:secure_url", content: OG_IMAGE },
+      { property: "og:image:type", content: "image/png" },
+      { property: "og:image:width", content: "1920" },
+      { property: "og:image:height", content: "1080" },
+      { property: "og:image:alt", content: "Pegasus.Tech — TOS" },
+
+      // "Author" line in Discord embeds
+      { name: "author", content: "Pegasus.Tech" },
+      { property: "article:author", content: "Pegasus.Tech" },
+
+      // Twitter / X (also picked up by some scrapers)
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "TOS" },
+      { name: "twitter:description", content: "Terms of Service for Pegasus.Tech scripting utility." },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
   }),
-  component: TosPage,
+  component: MediaPage,
 });
 
 function TosPage() {
@@ -49,11 +76,11 @@ function TosPage() {
             <p>You agree NOT to:</p>
             <ul className="list-disc pl-6 mt-2 space-y-1">
               <li>Reverse engineer, decompile, disassemble, or attempt to extract the source code of any Pegasus.Tech product.</li>
-              <li>Resell, redistribute, share, leak, or sublicense your access, keys, or loaders.</li>
+              <li>Resell, redistribute, share, leak, or sublicense your access or keys</li>
               <li>Modify, crack, patch, or create derivative works of the software.</li>
               <li>Use the software to harm, harass, or attack other users or third-party systems.</li>
               <li>Bypass or attempt to bypass any authentication, key validation, or anti-piracy measure.</li>
-              <li>Stream, record, or publish the loader, internal UI, or proprietary feature implementations publicly.</li>
+              <li>Stream, record, or publish the loader, chat, or proprietary feature implementations publicly.</li>
             </ul>
           </section>
 
@@ -84,16 +111,7 @@ function TosPage() {
           </section>
 
           <section>
-            <h2 className="font-display text-xl font-semibold text-foreground mb-2">7. Limitation of Liability</h2>
-            <p>
-              Pegasus.Tech is not liable for any indirect, incidental, or consequential damages
-              including but not limited to game bans, account loss, or hardware issues arising from
-              the use or misuse of our software.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="font-display text-xl font-semibold text-foreground mb-2">8. Changes to Terms</h2>
+            <h2 className="font-display text-xl font-semibold text-foreground mb-2">7. Changes to Terms</h2>
             <p>
               We may update these Terms at any time. Continued use of the service after changes
               constitutes acceptance of the new Terms.
@@ -101,7 +119,7 @@ function TosPage() {
           </section>
 
           <section>
-            <h2 className="font-display text-xl font-semibold text-foreground mb-2">9. Contact</h2>
+            <h2 className="font-display text-xl font-semibold text-foreground mb-2">8. Contact</h2>
             <p>
               For questions about these Terms, contact us through our official Discord server.
             </p>
