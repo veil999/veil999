@@ -1,4 +1,4 @@
-export type GameStatus = "operational" | "updating" | "detected";
+export type GameStatus = "operational" | "updating" | "detected" ;
 
 export interface Game {
   name: string;
@@ -8,14 +8,9 @@ export interface Game {
 }
 
 export const games: Game[] = [
-  { name: "Counter-Strike 2", tag: "CS2", status: "operational", version: "v2.4.1" },
-  { name: "Valorant", tag: "VAL", status: "updating", version: "v1.9.0" },
-  { name: "Apex Legends", tag: "APX", status: "operational", version: "v3.1.2" },
-  { name: "Rust", tag: "RST", status: "operational", version: "v2.0.7" },
-  { name: "Escape From Tarkov", tag: "EFT", status: "operational", version: "v4.2.0" },
-  { name: "Fortnite", tag: "FN", status: "detected", version: "v0.9.3" },
-  { name: "Call of Duty: Warzone", tag: "WZ", status: "updating", version: "v2.1.0" },
-  { name: "PUBG", tag: "PUBG", status: "operational", version: "v1.7.4" },
+  { name: "Phantom Forces", tag: "PF", status: "operational", version: "v0.2.1" },
+  { name: "Operation One", tag: "OONE", status: "updating", version: "v0.0.0" },
+  { name: "Universal", tag: "UNI", status: "detected", version: "v1.0.0" },
 ];
 
 export const statusMeta: Record<GameStatus, { label: string; color: string; dot: string }> = {
