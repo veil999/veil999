@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import logo from "@/assets/logo.png";
 import { DISCORD_URL } from "./Navbar";
 
@@ -9,12 +10,17 @@ export function Footer() {
           <img src={logo} alt="Pegasus.Tech" className="h-7 w-7" />
           <span className="font-display text-sm">Pegasus<span className="text-frost">.Tech</span></span>
         </div>
-        <p className="text-xs text-muted-foreground">
+        <p className="text-xs text-muted-foreground text-center">
           © {new Date().getFullYear()} Pegasus.Tech — Scripting utilities forged in frost.
         </p>
-        <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer" className="text-xs text-frost hover:text-ice">
-          discord.gg/pegasustech
-        </a>
+        <div className="flex items-center gap-4">
+          <Link to="/tos" className="text-xs text-muted-foreground hover:text-frost transition-colors">
+            Terms of Service
+          </Link>
+          <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer" className="text-xs text-frost hover:text-ice">
+            discord.gg/pegasustech
+          </a>
+        </div>
       </div>
     </footer>
   );
