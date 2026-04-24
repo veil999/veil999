@@ -3,7 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { MediaSection } from "@/components/MediaSection";
 
-const SITE_URL = "https://pegsuste.ch";
+const SITE_URL = "https://pegasuste.ch";
 const OG_IMAGE = `${SITE_URL}/og/media.png`;
 
 export const Route = createFileRoute("/media")({
