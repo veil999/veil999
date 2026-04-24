@@ -35,7 +35,7 @@ function PricingPage() {
           </p>
         </div>
 
-        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {tiers.map((t) => (
             <div key={t.name} className="relative">
               <div className="frost-pop glass rounded-2xl p-6 flex flex-col h-full opacity-60 grayscale">
