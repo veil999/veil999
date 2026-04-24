@@ -6,9 +6,10 @@ import { MediaSection } from "@/components/MediaSection";
 export const Route = createFileRoute("/media")({
   head: () => ({
     meta: [
-      { title: "Media — Pegasus.Tech" },
+      { title: "Pegasus.Tech | Media" },
       { name: "description", content: "Watch Pegasus.Tech in action — community showcases, tutorials, and gameplay." },
-      { property: "og:title", content: "Media — Pegasus.Tech" },
+      { property: "og:title", content: "Media" },
+      { property: "og:author", content: "Pegasus.Tech" },
       { property: "og:description", content: "Showcases and tutorials from the Pegasus.Tech community." },
     ],
   }),
