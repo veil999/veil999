@@ -9,17 +9,16 @@ export const Route = createFileRoute("/pricing")({
       { title: "Pricing — Pegasus.Tech" },
       { name: "description", content: "Simple, cold pricing for the Pegasus.Tech scripting utility. Day, week, month and lifetime keys." },
       { property: "og:title", content: "Pricing — Pegasus.Tech" },
-      { property: "og:description", content: "Day, week, month and lifetime access." },
+      { property: "og:description", content: "week, month and nightly access." },
     ],
   }),
   component: PricingPage,
 });
 
 const tiers = [
-  { name: "Day", price: "5", period: "24h", features: ["Full feature access", "All supported games", "Community support"] },
-  { name: "Week", price: "15", period: "7 days", features: ["Full feature access", "All supported games", "Priority Discord roles"], highlight: false },
-  { name: "Month", price: "35", period: "30 days", features: ["Everything in Week", "Early loader access", "Premium support channel"], highlight: true },
-  { name: "Lifetime", price: "199", period: "forever", features: ["Everything in Month", "Lifetime updates", "Beta program access"] },
+  { name: "Week", price: "7", period: "7 days", features: ["Full feature access", "All supported games", "Priority Discord roles"], highlight: false },
+  { name: "Month", price: "15", period: "30 days", features: ["Everything in Week", "Premium support channel"], highlight: true },
+  { name: "Nightly", price: "35", period: "forever", features: ["Alpha Build Access", "Slotted Access", "Unique Build Signature"] },
 ];
 
 function PricingPage() {
