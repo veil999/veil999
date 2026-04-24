@@ -3,6 +3,9 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Lock } from "lucide-react";
 
+const SITE_URL = "https://pegasuste.ch";
+const OG_IMAGE = `${SITE_URL}/og/pricing.png`;
+
 export const Route = createFileRoute("/pricing")({
   head: () => ({
     meta: [
