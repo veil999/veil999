@@ -1,12 +1,3 @@
-import cs2Img from "@/assets/games/cs2.jpg";
-import valorantImg from "@/assets/games/valorant.jpg";
-import apexImg from "@/assets/games/apex.jpg";
-import rustImg from "@/assets/games/rust.jpg";
-import eftImg from "@/assets/games/eft.jpg";
-import fortniteImg from "@/assets/games/fortnite.jpg";
-import warzoneImg from "@/assets/games/warzone.jpg";
-import pubgImg from "@/assets/games/pubg.jpg";
-
 export type GameStatus = "operational" | "updating" | "detected";
 
 export interface DetectionEvent {
@@ -21,7 +12,7 @@ export interface Game {
   tag: string;
   status: GameStatus;
   version: string;
-  image: string;
+  image: string; // Keeping the type so components don't break, but filling with empty string
   publisher: string;
   anticheat: string;
   lastUpdated: string;
@@ -38,17 +29,6 @@ export interface Game {
     gpu: string;
   };
 }
-
-const imageMap: Record<string, string> = {
-  "counter-strike-2": cs2Img,
-  valorant: valorantImg,
-  "apex-legends": apexImg,
-  rust: rustImg,
-  "escape-from-tarkov": eftImg,
-  fortnite: fortniteImg,
-  "call-of-duty-warzone": warzoneImg,
-  pubg: pubgImg,
-};
 
 const rawGames: Omit<Game, "image">[] = [
   {
@@ -305,7 +285,8 @@ const rawGames: Omit<Game, "image">[] = [
   },
 ];
 
-export const games: Game[] = rawGames.map((g) => ({ ...g, image: imageMap[g.slug] }));
+// Map with empty strings to satisfy the Type system without needing asset files
+export const games: Game[] = rawGames.map((g) => ({ ...g, image: "" }));
 
 export const statusMeta: Record<GameStatus, { label: string; color: string; dot: string }> = {
   operational: { label: "Operational", color: "text-success", dot: "bg-[oklch(0.74_0.16_155)]" },
