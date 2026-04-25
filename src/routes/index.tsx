@@ -4,14 +4,7 @@ import { Footer } from "@/components/Footer";
 import { MediaSection } from "@/components/MediaSection";
 import { ReviewsSection } from "@/components/ReviewsSection";
 import { games, statusMeta } from "@/data/games";
-import {
-  Activity,
-  Shield,
-  Zap,
-  Flame,
-  ArrowRight,
-  Gamepad2,
-} from "lucide-react";
+import { Activity, Shield, Zap, Flame, ArrowRight, Gamepad2 } from "lucide-react";
 import { TypingText } from "@/components/TypingText";
 import logo from "@/assets/logo.png";
 
@@ -29,19 +22,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Pegasus.Tech — Premium Scripting Utility" },
-      {
-        name: "description",
-        content:
-          "Frost-forged scripting utilities for competitive games. Live status, supported titles, and a thriving Discord community.",
-      },
-      {
-        property: "og:title",
-        content: "Pegasus.Tech — Premium Scripting Utility",
-      },
-      {
-        property: "og:description",
-        content: "Frost-forged scripting utilities for competitive games.",
-      },
+      { name: "description", content: "Frost-forged scripting utilities for competitive games. Live status, supported titles, and a thriving Discord community." },
+      { property: "og:title", content: "Pegasus.Tech — Premium Scripting Utility" },
+      { property: "og:description", content: "Frost-forged scripting utilities for competitive games." },
     ],
   }),
   component: Index,
@@ -68,24 +51,16 @@ function Index() {
             All systems frosted • {uptimePct}% operational
           </div>
 
-          <img
-            src={logo}
-            alt=""
-            className="mx-auto h-24 w-24 mb-6 drop-shadow-[0_0_30px_oklch(0.85_0.12_220/0.5)]"
-          />
+          <img src={logo} alt="" className="mx-auto h-24 w-24 mb-6 drop-shadow-[0_0_30px_oklch(0.85_0.12_220/0.5)]" />
 
           <h1 className="font-display text-5xl md:text-7xl font-bold tracking-tighter">
             Scripting,{" "}
-            <TypingText
-              phrases={HERO_PHRASES}
-              className="text-gradient-frost"
-            />
+            <TypingText phrases={HERO_PHRASES} className="text-gradient-frost" />
             .
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-            Pegasus.Tech is a precision scripting utility for the most
-            competitive titles on the market. Cold execution, surgical control,
-            undetected.
+            Pegasus.Tech is a precision scripting utility for the most competitive
+            titles on the market. Cold execution, surgical control, undetected.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
@@ -118,14 +93,10 @@ function Index() {
                 <Activity className="h-5 w-5 text-frost" />
                 Live Status
               </h2>
-              <p className="text-sm text-muted-foreground mt-1">
-                Real-time product health across all supported titles.
-              </p>
+              <p className="text-sm text-muted-foreground mt-1">Real-time product health across all supported titles.</p>
             </div>
             <div className="text-right hidden sm:block">
-              <div className="font-mono text-3xl text-gradient-frost font-bold">
-                {uptimePct}%
-              </div>
+              <div className="font-mono text-3xl text-gradient-frost font-bold">{uptimePct}%</div>
               <div className="text-xs text-muted-foreground">operational</div>
             </div>
           </div>
@@ -134,14 +105,9 @@ function Index() {
             {games.slice(0, 4).map((g) => {
               const m = statusMeta[g.status];
               return (
-                <div
-                  key={g.tag}
-                  className="frost-pop rounded-lg border border-border bg-card/40 p-4"
-                >
+                <div key={g.tag} className="frost-pop rounded-lg border border-border bg-card/40 p-4">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="font-mono text-xs text-muted-foreground">
-                      {g.tag}
-                    </span>
+                    <span className="font-mono text-xs text-muted-foreground">{g.tag}</span>
                     <span className={`h-2 w-2 rounded-full ${m.dot}`} />
                   </div>
                   <div className="font-medium text-sm">{g.name}</div>
@@ -156,37 +122,16 @@ function Index() {
       {/* FEATURES */}
       <section className="mx-auto max-w-7xl px-6 mt-32">
         <div className="text-center mb-14">
-          <h2 className="font-display text-4xl font-bold tracking-tight">
-            Built for the cold edge
-          </h2>
-          <p className="mt-3 text-muted-foreground">
-            Three pillars. Zero compromise.
-          </p>
+          <h2 className="font-display text-4xl font-bold tracking-tight">Built for the cold edge</h2>
+          <p className="mt-3 text-muted-foreground">Three pillars. Zero compromise.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            {
-              icon: Zap,
-              title: "Sub-millisecond",
-              desc: "Native execution layer engineered for competitive frame budgets.",
-            },
-            {
-              icon: Shield,
-              title: "Stealth-first",
-              desc: "Continuous evasion research keeps your account in the clear.",
-            },
-            {
-              icon: Flame,
-              title: "Customization",
-              desc: "Infinite visual options ensure your unique look always stands out.",
-            },
+            { icon: Zap, title: "Sub-millisecond", desc: "Native execution layer engineered for competitive frame budgets." },
+            { icon: Shield, title: "Stealth-first", desc: "Continuous evasion research keeps your account in the clear." },
+            { icon: Flame, title: "Customization", desc: "Infinite visual options ensure your unique look always stands out." },
           ].map((f) => (
-            <div
-              key={f.title}
-              className={`frost-pop glass rounded-xl p-6 ${
-                f.title === "Stealth-first" ? "tilt-right" : ""
-              }`}
-            >
+            <div key={f.title} className={`frost-pop glass rounded-xl p-6 ${f.title === "Stealth-first" ? "tilt-right" : ""}`}>
               <div className="h-10 w-10 rounded-md bg-gradient-frost flex items-center justify-center mb-4">
                 <f.icon className="h-5 w-5 text-primary-foreground" />
               </div>
@@ -201,17 +146,10 @@ function Index() {
       <section className="mx-auto max-w-7xl px-6 mt-32">
         <div className="flex items-end justify-between mb-8">
           <div>
-            <h2 className="font-display text-4xl font-bold tracking-tight">
-              Supported titles
-            </h2>
-            <p className="mt-2 text-muted-foreground">
-              A growing arsenal of supported games.
-            </p>
+            <h2 className="font-display text-4xl font-bold tracking-tight">Supported titles</h2>
+            <p className="mt-2 text-muted-foreground">A growing arsenal of supported games.</p>
           </div>
-          <Link
-            to="/games"
-            className="hidden md:inline-flex items-center gap-1 text-sm text-frost hover:text-ice"
-          >
+          <Link to="/games" className="hidden md:inline-flex items-center gap-1 text-sm text-frost hover:text-ice">
             View all <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
@@ -219,26 +157,22 @@ function Index() {
           {games.map((g) => {
             const m = statusMeta[g.status];
             return (
-              <div
+              <Link
                 key={g.tag}
-                className={`frost-pop glass rounded-xl p-5 ${
-                  g.tag.length % 2 === 0 ? "tilt-right" : ""
-                }`}
+                to="/games/$slug"
+                params={{ slug: g.slug }}
+                className={`frost-pop glass rounded-xl p-5 group hover:shadow-glow transition-shadow ${g.tag.length % 2 === 0 ? "tilt-right" : ""}`}
               >
                 <div className="flex items-center justify-between mb-3">
-                  <div className="font-mono text-xs px-2 py-0.5 rounded bg-secondary/60 text-frost">
-                    {g.tag}
-                  </div>
-                  <span className="font-mono text-[10px] text-muted-foreground">
-                    {g.version}
-                  </span>
+                  <div className="font-mono text-xs px-2 py-0.5 rounded bg-secondary/60 text-frost">{g.tag}</div>
+                  <span className="font-mono text-[10px] text-muted-foreground">{g.version}</span>
                 </div>
-                <div className="font-medium">{g.name}</div>
+                <div className="font-medium group-hover:text-frost transition-colors">{g.name}</div>
                 <div className="mt-3 flex items-center gap-1.5 text-xs">
                   <span className={`h-1.5 w-1.5 rounded-full ${m.dot}`} />
                   <span className={m.color}>{m.label}</span>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>
@@ -259,8 +193,7 @@ function Index() {
               Step into the <span className="text-gradient-frost">frost</span>.
             </h2>
             <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
-              Get update pings, early loaders, and direct support. The community
-              moves fast — join us.
+              Get update pings, early loaders, and direct support. The community moves fast — join us.
             </p>
             <a
               href={DISCORD_URL}
