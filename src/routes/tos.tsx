@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { useState, useEffect } from "react";
 
 const SITE_URL = "https://pegasuste.ch";
 const OG_IMAGE = `${SITE_URL}/og/tos.png`;
@@ -10,11 +11,7 @@ export const Route = createFileRoute("/tos")({
     meta: [
       { title: "Pegasus.Tech | TOS" },
       { name: "description", content: "Terms of Service for Pegasus.Tech scripting utility." },
-
-      // Discord uses theme-color for the embed strip color
       { name: "theme-color", content: "#7ad6ff" },
-
-      // Open Graph (Discord reads these)
       { property: "og:site_name", content: "Pegasus.Tech" },
       { property: "og:title", content: "TOS" },
       { property: "og:description", content: "Terms of Service for Pegasus.Tech scripting utility." },
@@ -26,22 +23,26 @@ export const Route = createFileRoute("/tos")({
       { property: "og:image:width", content: "1920" },
       { property: "og:image:height", content: "1080" },
       { property: "og:image:alt", content: "Pegasus.Tech — TOS" },
-
-      // "Author" line in Discord embeds
       { name: "author", content: "Pegasus.Tech" },
       { property: "article:author", content: "Pegasus.Tech" },
-
-      // Twitter / X (also picked up by some scrapers)
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "TOS" },
       { name: "twitter:description", content: "Terms of Service for Pegasus.Tech scripting utility." },
       { name: "twitter:image", content: OG_IMAGE },
     ],
   }),
-  component: MediaPage,
+  // FIX: Changed MediaPage to TosPage
+  component: TosPage,
 });
 
 function TosPage() {
+  // FIX: Prevent Hydration error by setting date after mount
+  const [date, setDate] = useState<string>("");
+
+  useEffect(() => {
+    setDate(new Date().toLocaleDateString());
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -50,7 +51,7 @@ function TosPage() {
           Terms of <span className="text-gradient-frost">Service</span>
         </h1>
         <p className="mt-3 text-muted-foreground">
-          Last updated: {new Date().toLocaleDateString()}
+          Last updated: {date || "Loading..."}
         </p>
 
         <div className="mt-10 space-y-8 text-sm leading-relaxed text-muted-foreground">
