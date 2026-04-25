@@ -186,7 +186,7 @@ function Index() {
 
       {/* CTA */}
       <section className="mx-auto max-w-5xl px-6 mt-32">
-        <div className="relative overflow-hidden rounded-2xl glass p-12 text-center shadow-frost">
+        <div className="relative overflow-hidden glass rounded-xl p-6 text-center">
           <div className="absolute inset-0 bg-gradient-frost opacity-10" />
           <div className="relative">
             <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight">
