@@ -127,8 +127,8 @@ function Index() {
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            { icon: Zap, title: "Optimized Architecture", desc: "Lightweight execution layer engineered to maintain high frame rates and zero lag." },
-            { icon: Shield, title: "Undetected Core", desc: "Advanced evasion logic keeps your account safe through every anti-cheat update." },
+            { icon: Zap, title: "Optimized", desc: "Carefully optimized code that delivers smooth, high-FPS gameplay even during heavy server load." },
+            { icon: Shield, title: "Undetected", desc: "Constant bypass development and private testing keep your account safe and hidden." },
             { icon: Flame, title: "Customization", desc: "Infinite visual options ensure your unique look always stands out." },
           ].map((f) => (
             <div key={f.title} className={`frost-pop glass rounded-xl p-6 ${f.title === "Stealth-first" ? "tilt-right" : ""}`}>
