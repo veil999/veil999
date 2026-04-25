@@ -9,21 +9,13 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as TosRouteImport } from './routes/tos'
 import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as MediaRouteImport } from './routes/media'
-import { Route as LoginRouteImport } from './routes/login'
 import { Route as GamesRouteImport } from './routes/games'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as GamesSlugRouteImport } from './routes/games.$slug'
 
-const TosRoute = TosRouteImport.update({
-  id: '/tos',
-  path: '/tos',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ReviewsRoute = ReviewsRouteImport.update({
   id: '/reviews',
   path: '/reviews',
@@ -37,11 +29,6 @@ const PricingRoute = PricingRouteImport.update({
 const MediaRoute = MediaRouteImport.update({
   id: '/media',
   path: '/media',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LoginRoute = LoginRouteImport.update({
-  id: '/login',
-  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GamesRoute = GamesRouteImport.update({
@@ -59,102 +46,51 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const GamesSlugRoute = GamesSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => GamesRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/faq': typeof FaqRoute
-  '/games': typeof GamesRouteWithChildren
-  '/login': typeof LoginRoute
+  '/games': typeof GamesRoute
   '/media': typeof MediaRoute
   '/pricing': typeof PricingRoute
   '/reviews': typeof ReviewsRoute
-  '/tos': typeof TosRoute
-  '/games/$slug': typeof GamesSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/faq': typeof FaqRoute
-  '/games': typeof GamesRouteWithChildren
-  '/login': typeof LoginRoute
+  '/games': typeof GamesRoute
   '/media': typeof MediaRoute
   '/pricing': typeof PricingRoute
   '/reviews': typeof ReviewsRoute
-  '/tos': typeof TosRoute
-  '/games/$slug': typeof GamesSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/faq': typeof FaqRoute
-  '/games': typeof GamesRouteWithChildren
-  '/login': typeof LoginRoute
+  '/games': typeof GamesRoute
   '/media': typeof MediaRoute
   '/pricing': typeof PricingRoute
   '/reviews': typeof ReviewsRoute
-  '/tos': typeof TosRoute
-  '/games/$slug': typeof GamesSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/faq'
-    | '/games'
-    | '/login'
-    | '/media'
-    | '/pricing'
-    | '/reviews'
-    | '/tos'
-    | '/games/$slug'
+  fullPaths: '/' | '/faq' | '/games' | '/media' | '/pricing' | '/reviews'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/faq'
-    | '/games'
-    | '/login'
-    | '/media'
-    | '/pricing'
-    | '/reviews'
-    | '/tos'
-    | '/games/$slug'
-  id:
-    | '__root__'
-    | '/'
-    | '/faq'
-    | '/games'
-    | '/login'
-    | '/media'
-    | '/pricing'
-    | '/reviews'
-    | '/tos'
-    | '/games/$slug'
+  to: '/' | '/faq' | '/games' | '/media' | '/pricing' | '/reviews'
+  id: '__root__' | '/' | '/faq' | '/games' | '/media' | '/pricing' | '/reviews'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   FaqRoute: typeof FaqRoute
-  GamesRoute: typeof GamesRouteWithChildren
-  LoginRoute: typeof LoginRoute
+  GamesRoute: typeof GamesRoute
   MediaRoute: typeof MediaRoute
   PricingRoute: typeof PricingRoute
   ReviewsRoute: typeof ReviewsRoute
-  TosRoute: typeof TosRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/tos': {
-      id: '/tos'
-      path: '/tos'
-      fullPath: '/tos'
-      preLoaderRoute: typeof TosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/reviews': {
       id: '/reviews'
       path: '/reviews'
@@ -174,13 +110,6 @@ declare module '@tanstack/react-router' {
       path: '/media'
       fullPath: '/media'
       preLoaderRoute: typeof MediaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/login': {
-      id: '/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/games': {
@@ -204,35 +133,16 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/games/$slug': {
-      id: '/games/$slug'
-      path: '/$slug'
-      fullPath: '/games/$slug'
-      preLoaderRoute: typeof GamesSlugRouteImport
-      parentRoute: typeof GamesRoute
-    }
   }
 }
-
-interface GamesRouteChildren {
-  GamesSlugRoute: typeof GamesSlugRoute
-}
-
-const GamesRouteChildren: GamesRouteChildren = {
-  GamesSlugRoute: GamesSlugRoute,
-}
-
-const GamesRouteWithChildren = GamesRoute._addFileChildren(GamesRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   FaqRoute: FaqRoute,
-  GamesRoute: GamesRouteWithChildren,
-  LoginRoute: LoginRoute,
+  GamesRoute: GamesRoute,
   MediaRoute: MediaRoute,
   PricingRoute: PricingRoute,
   ReviewsRoute: ReviewsRoute,
-  TosRoute: TosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
