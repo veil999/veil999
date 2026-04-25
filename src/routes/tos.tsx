@@ -66,7 +66,7 @@ function TosPage() {
           <section>
             <h2 className="font-display text-xl font-semibold text-foreground mb-2">2. License</h2>
             <p>
-              Pegasus.Tech grants you a personal, non-transferable, non-exclusive, revocable license
+              Pegasus.Tech grants you a personal, non-transferable, revocable license
               to use the software for the duration of your active subscription. You do not own the
               software — you are licensing it.
             </p>
