@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { MediaSection } from "@/components/MediaSection";
 import { ReviewsSection } from "@/components/ReviewsSection";
 import { games, statusMeta } from "@/data/games";
-import { Activity, Shield, Zap, Flame, ArrowRight, Gamepad2 } from "lucide-react";
+import { Activity, Shield, Zap, Code2, ArrowRight, Gamepad2 } from "lucide-react";
 import { TypingText } from "@/components/TypingText";
 import logo from "@/assets/logo.png";
 
@@ -129,7 +129,7 @@ function Index() {
           {[
             { icon: Zap, title: "Sub-millisecond", desc: "Native execution layer engineered for competitive frame budgets." },
             { icon: Shield, title: "Stealth-first", desc: "Continuous evasion research keeps your account in the clear." },
-            { icon: Flame, title: "Customization", desc: "Infinite visual options ensure your unique look always stands out." },
+            { icon: Code2, title: "Scriptable", desc: "Hot-reloadable Lua scripts. Build, share, and iterate at the speed of thought." },
           ].map((f) => (
             <div key={f.title} className={`frost-pop glass rounded-xl p-6 ${f.title === "Stealth-first" ? "tilt-right" : ""}`}>
               <div className="h-10 w-10 rounded-md bg-gradient-frost flex items-center justify-center mb-4">
@@ -157,17 +157,22 @@ function Index() {
           {games.map((g) => {
             const m = statusMeta[g.status];
             return (
-              <div key={g.tag} className={`frost-pop glass rounded-xl p-5 ${g.tag.length % 2 === 0 ? "tilt-right" : ""}`}>
+              <Link
+                key={g.tag}
+                to="/games/$slug"
+                params={{ slug: g.slug }}
+                className={`frost-pop glass rounded-xl p-5 group hover:shadow-glow transition-shadow ${g.tag.length % 2 === 0 ? "tilt-right" : ""}`}
+              >
                 <div className="flex items-center justify-between mb-3">
                   <div className="font-mono text-xs px-2 py-0.5 rounded bg-secondary/60 text-frost">{g.tag}</div>
                   <span className="font-mono text-[10px] text-muted-foreground">{g.version}</span>
                 </div>
-                <div className="font-medium">{g.name}</div>
+                <div className="font-medium group-hover:text-frost transition-colors">{g.name}</div>
                 <div className="mt-3 flex items-center gap-1.5 text-xs">
                   <span className={`h-1.5 w-1.5 rounded-full ${m.dot}`} />
                   <span className={m.color}>{m.label}</span>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>
