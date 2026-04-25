@@ -11,7 +11,7 @@ export function Footer() {
           <span className="font-display text-sm">Pegasus<span className="text-frost">.Tech</span></span>
         </div>
         <p className="text-xs text-muted-foreground text-center">
-          © {new Date().getFullYear()} Pegasus.Tech — Scripting utilities forged in frost.
+          © 2025 Pegasus.Tech — Scripting utilities forged in frost.
         </p>
         <div className="flex items-center gap-4">
           <Link to="/tos" className="text-xs text-muted-foreground hover:text-frost transition-colors">
