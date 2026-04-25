@@ -5,7 +5,6 @@ import { MediaSection } from "@/components/MediaSection";
 import { ReviewsSection } from "@/components/ReviewsSection";
 import { games, statusMeta } from "@/data/games";
 import { Activity, Shield, Zap, Code2, ArrowRight, Gamepad2 } from "lucide-react";
-import { Activity, Shield, Zap, Flame, ArrowRight, Gamepad2 } from "lucide-react";
 import { TypingText } from "@/components/TypingText";
 import logo from "@/assets/logo.png";
 
